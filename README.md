@@ -22,7 +22,37 @@ Before clone the repo, you must have node.js, docker on your device.
     
 #
 
-#### Check the endpoint
+## What I done - While using docker with nodejs
+## Firstly,
+  - we have to create a new dir name of ```Dockerfile``` and add this
+
+        FROM node:10
+        WORkDIR /index
+        COPY package.json /index
+        RUN npm install
+        COPY . /index
+        CMD node index.js
+        EXPOSE 7000
+        
+ ## Secondly
+  - use this command as to build an image from a ```Dockerfile```
+  
+        docker build -t hello-docker .
+        
+  - use this command as to run a command in a container
+
+        docker run -it -p 7000:3000 hello-docker
+   
+  - know the running the docker container
+        
+        docker ps
+        
+  - stop our container 
+      
+        docker stop <container_name or id>
+ #
+
+## Check the endpoint
 ### Getting all data that we have in our db/api
        GET /
 ### Searching the name
@@ -42,4 +72,3 @@ Before clone the repo, you must have node.js, docker on your device.
 [Expressjs Docs](https://expressjs.com/en/guide/writing-middleware.html)
     
 [Docker Docs](https://docs.docker.com/reference)
-
